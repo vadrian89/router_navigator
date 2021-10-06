@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'main_navigation_cubit.dart';
+part of 'freezed_router_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$MainNavigationStateTearOff {
-  const _$MainNavigationStateTearOff();
+class _$FreezedRouterStateTearOff {
+  const _$FreezedRouterStateTearOff();
 
   _Page1 page1({String? extraPageContent}) {
     return _Page1(
@@ -43,10 +43,10 @@ class _$MainNavigationStateTearOff {
 }
 
 /// @nodoc
-const $MainNavigationState = _$MainNavigationStateTearOff();
+const $FreezedRouterState = _$FreezedRouterStateTearOff();
 
 /// @nodoc
-mixin _$MainNavigationState {
+mixin _$FreezedRouterState {
   String? get extraPageContent => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
@@ -101,26 +101,26 @@ mixin _$MainNavigationState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $MainNavigationStateCopyWith<MainNavigationState> get copyWith =>
+  $FreezedRouterStateCopyWith<FreezedRouterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MainNavigationStateCopyWith<$Res> {
-  factory $MainNavigationStateCopyWith(
-          MainNavigationState value, $Res Function(MainNavigationState) then) =
-      _$MainNavigationStateCopyWithImpl<$Res>;
+abstract class $FreezedRouterStateCopyWith<$Res> {
+  factory $FreezedRouterStateCopyWith(
+          FreezedRouterState value, $Res Function(FreezedRouterState) then) =
+      _$FreezedRouterStateCopyWithImpl<$Res>;
   $Res call({String? extraPageContent});
 }
 
 /// @nodoc
-class _$MainNavigationStateCopyWithImpl<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
-  _$MainNavigationStateCopyWithImpl(this._value, this._then);
+class _$FreezedRouterStateCopyWithImpl<$Res>
+    implements $FreezedRouterStateCopyWith<$Res> {
+  _$FreezedRouterStateCopyWithImpl(this._value, this._then);
 
-  final MainNavigationState _value;
+  final FreezedRouterState _value;
   // ignore: unused_field
-  final $Res Function(MainNavigationState) _then;
+  final $Res Function(FreezedRouterState) _then;
 
   @override
   $Res call({
@@ -137,7 +137,7 @@ class _$MainNavigationStateCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class _$Page1CopyWith<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
+    implements $FreezedRouterStateCopyWith<$Res> {
   factory _$Page1CopyWith(_Page1 value, $Res Function(_Page1) then) =
       __$Page1CopyWithImpl<$Res>;
   @override
@@ -145,7 +145,7 @@ abstract class _$Page1CopyWith<$Res>
 }
 
 /// @nodoc
-class __$Page1CopyWithImpl<$Res> extends _$MainNavigationStateCopyWithImpl<$Res>
+class __$Page1CopyWithImpl<$Res> extends _$FreezedRouterStateCopyWithImpl<$Res>
     implements _$Page1CopyWith<$Res> {
   __$Page1CopyWithImpl(_Page1 _value, $Res Function(_Page1) _then)
       : super(_value, (v) => _then(v as _Page1));
@@ -176,7 +176,7 @@ class _$_Page1 extends _Page1 {
 
   @override
   String toString() {
-    return 'MainNavigationState.page1(extraPageContent: $extraPageContent)';
+    return 'FreezedRouterState.page1(extraPageContent: $extraPageContent)';
   }
 
   @override
@@ -273,7 +273,7 @@ class _$_Page1 extends _Page1 {
   }
 }
 
-abstract class _Page1 extends MainNavigationState {
+abstract class _Page1 extends FreezedRouterState {
   const factory _Page1({String? extraPageContent}) = _$_Page1;
   const _Page1._() : super._();
 
@@ -286,7 +286,7 @@ abstract class _Page1 extends MainNavigationState {
 
 /// @nodoc
 abstract class _$Page2CopyWith<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
+    implements $FreezedRouterStateCopyWith<$Res> {
   factory _$Page2CopyWith(_Page2 value, $Res Function(_Page2) then) =
       __$Page2CopyWithImpl<$Res>;
   @override
@@ -294,7 +294,7 @@ abstract class _$Page2CopyWith<$Res>
 }
 
 /// @nodoc
-class __$Page2CopyWithImpl<$Res> extends _$MainNavigationStateCopyWithImpl<$Res>
+class __$Page2CopyWithImpl<$Res> extends _$FreezedRouterStateCopyWithImpl<$Res>
     implements _$Page2CopyWith<$Res> {
   __$Page2CopyWithImpl(_Page2 _value, $Res Function(_Page2) _then)
       : super(_value, (v) => _then(v as _Page2));
@@ -325,7 +325,7 @@ class _$_Page2 extends _Page2 {
 
   @override
   String toString() {
-    return 'MainNavigationState.page2(extraPageContent: $extraPageContent)';
+    return 'FreezedRouterState.page2(extraPageContent: $extraPageContent)';
   }
 
   @override
@@ -422,7 +422,7 @@ class _$_Page2 extends _Page2 {
   }
 }
 
-abstract class _Page2 extends MainNavigationState {
+abstract class _Page2 extends FreezedRouterState {
   const factory _Page2({String? extraPageContent}) = _$_Page2;
   const _Page2._() : super._();
 
@@ -435,7 +435,7 @@ abstract class _Page2 extends MainNavigationState {
 
 /// @nodoc
 abstract class _$Page3CopyWith<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
+    implements $FreezedRouterStateCopyWith<$Res> {
   factory _$Page3CopyWith(_Page3 value, $Res Function(_Page3) then) =
       __$Page3CopyWithImpl<$Res>;
   @override
@@ -443,7 +443,7 @@ abstract class _$Page3CopyWith<$Res>
 }
 
 /// @nodoc
-class __$Page3CopyWithImpl<$Res> extends _$MainNavigationStateCopyWithImpl<$Res>
+class __$Page3CopyWithImpl<$Res> extends _$FreezedRouterStateCopyWithImpl<$Res>
     implements _$Page3CopyWith<$Res> {
   __$Page3CopyWithImpl(_Page3 _value, $Res Function(_Page3) _then)
       : super(_value, (v) => _then(v as _Page3));
@@ -474,7 +474,7 @@ class _$_Page3 extends _Page3 {
 
   @override
   String toString() {
-    return 'MainNavigationState.page3(extraPageContent: $extraPageContent)';
+    return 'FreezedRouterState.page3(extraPageContent: $extraPageContent)';
   }
 
   @override
@@ -571,7 +571,7 @@ class _$_Page3 extends _Page3 {
   }
 }
 
-abstract class _Page3 extends MainNavigationState {
+abstract class _Page3 extends FreezedRouterState {
   const factory _Page3({String? extraPageContent}) = _$_Page3;
   const _Page3._() : super._();
 
@@ -584,7 +584,7 @@ abstract class _Page3 extends MainNavigationState {
 
 /// @nodoc
 abstract class _$Page4CopyWith<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
+    implements $FreezedRouterStateCopyWith<$Res> {
   factory _$Page4CopyWith(_Page4 value, $Res Function(_Page4) then) =
       __$Page4CopyWithImpl<$Res>;
   @override
@@ -592,7 +592,7 @@ abstract class _$Page4CopyWith<$Res>
 }
 
 /// @nodoc
-class __$Page4CopyWithImpl<$Res> extends _$MainNavigationStateCopyWithImpl<$Res>
+class __$Page4CopyWithImpl<$Res> extends _$FreezedRouterStateCopyWithImpl<$Res>
     implements _$Page4CopyWith<$Res> {
   __$Page4CopyWithImpl(_Page4 _value, $Res Function(_Page4) _then)
       : super(_value, (v) => _then(v as _Page4));
@@ -623,7 +623,7 @@ class _$_Page4 extends _Page4 {
 
   @override
   String toString() {
-    return 'MainNavigationState.page4(extraPageContent: $extraPageContent)';
+    return 'FreezedRouterState.page4(extraPageContent: $extraPageContent)';
   }
 
   @override
@@ -720,7 +720,7 @@ class _$_Page4 extends _Page4 {
   }
 }
 
-abstract class _Page4 extends MainNavigationState {
+abstract class _Page4 extends FreezedRouterState {
   const factory _Page4({String? extraPageContent}) = _$_Page4;
   const _Page4._() : super._();
 

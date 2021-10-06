@@ -10,5 +10,5 @@ void main() {
 
   Bloc.observer = SimpleBlocObserver();
 
-  runApp(const AppRoot());
+  runApp(AppRoot());
 }
