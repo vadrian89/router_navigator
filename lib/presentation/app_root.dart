@@ -13,7 +13,7 @@ import 'freezed_router/root_freezed_router_delegate.dart';
 class AppRoot extends StatelessWidget {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   // true - use freezed version; false - use non-freezed version
-  static const bool _useFreezed = true;
+  static const bool _useFreezed = false;
 
   AppRoot({Key? key}) : super(key: key);
 

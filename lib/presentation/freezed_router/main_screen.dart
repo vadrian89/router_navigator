@@ -32,14 +32,12 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         ),
       ];
 
+  int get _currentPageIndex => _tabCtrl?.index ?? 0;
+
   @override
   void initState() {
     super.initState();
-    _tabCtrl = TabController(
-      initialIndex: _pageIndexFromState(context.read<FreezedRouterCubit>().state),
-      vsync: this,
-      length: _tabs.length,
-    );
+    _tabCtrl = TabController(initialIndex: 0, vsync: this, length: _tabs.length);
   }
 
   @override
@@ -49,11 +47,13 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
   }
 
   @override
-  Widget build(_) => BlocConsumer<FreezedRouterCubit, FreezedRouterState>(
-        listener: _listener,
-        builder: (context, state) => Scaffold(
-          body: _body(context),
-          bottomNavigationBar: _bottomNavigationBar(context, state),
+  Widget build(_) => Builder(
+        builder: (__) => BlocConsumer<FreezedRouterCubit, FreezedRouterState>(
+          listener: _listener,
+          builder: (context, state) => Scaffold(
+            body: _body(context),
+            bottomNavigationBar: _bottomNavigationBar(context, state),
+          ),
         ),
       );
 
@@ -117,8 +117,8 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
 
   int _pageIndexFromState(FreezedRouterState state) => state.maybeWhen(
         orElse: () => 0,
-        page2: (_) => 1,
-        page3: (_) => 2,
-        page4: (_) => 3,
+        page2: (text) => (text?.isEmpty ?? true) ? 1 : _currentPageIndex,
+        page3: (text) => (text?.isEmpty ?? true) ? 2 : _currentPageIndex,
+        page4: (text) => (text?.isEmpty ?? true) ? 3 : _currentPageIndex,
       );
 }

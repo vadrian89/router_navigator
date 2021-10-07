@@ -32,14 +32,12 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         ),
       ];
 
+  int get _currentPageIndex => _tabCtrl?.index ?? 0;
+
   @override
   void initState() {
     super.initState();
-    _tabCtrl = TabController(
-      initialIndex: _pageIndexFromState(context.read<RouterCubit>().state),
-      vsync: this,
-      length: _tabs.length,
-    );
+    _tabCtrl = TabController(initialIndex: 0, vsync: this, length: _tabs.length);
   }
 
   @override
@@ -117,11 +115,11 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
 
   int _pageIndexFromState(RouterState state) {
     if (state is Page2State) {
-      return 1;
+      return (state.extraPageContent?.isEmpty ?? true) ? 1 : _currentPageIndex;
     } else if (state is Page3State) {
-      return 2;
+      return (state.extraPageContent?.isEmpty ?? true) ? 2 : _currentPageIndex;
     } else if (state is Page4State) {
-      return 3;
+      return (state.extraPageContent?.isEmpty ?? true) ? 3 : _currentPageIndex;
     } else {
       return 0;
     }
