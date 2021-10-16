@@ -11,7 +11,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
-  TabController? _tabCtrl;
+  late TabController _tabCtrl;
 
   List<Tab> get _tabs => [
         const Tab(
@@ -32,7 +32,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         ),
       ];
 
-  int get _currentPageIndex => _tabCtrl?.index ?? 0;
+  int get _currentPageIndex => _tabCtrl.index;
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
 
   @override
   void dispose() {
-    _tabCtrl?.dispose();
+    _tabCtrl.dispose();
     super.dispose();
   }
 
@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
 
   void _listener(BuildContext context, RouterState state) {
     final int pageIndex = _pageIndexFromState(context.read<RouterCubit>().state);
-    if (_tabCtrl != null) _tabCtrl?.animateTo(pageIndex, curve: Curves.easeInOut);
+    _tabCtrl.animateTo(pageIndex, curve: Curves.easeInOut);
   }
 
   Widget _body(BuildContext context) => TabBarView(

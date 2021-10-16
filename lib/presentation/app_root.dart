@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // For non-freezed version
 import 'package:router_navigator/application/router_cubit/router_cubit.dart';
-import 'package:router_navigator/presentation/freezed_router/root_freezed_router_parser.dart';
 import 'package:router_navigator/presentation/router/root_router_parser.dart';
 import 'router/root_router_delegate.dart';
 // For freezed version
 import 'package:router_navigator/application/freezed_router/freezed_router_cubit.dart';
+import 'package:router_navigator/presentation/freezed_router/root_freezed_router_parser.dart';
 import 'freezed_router/root_freezed_router_delegate.dart';
 
 class AppRoot extends StatelessWidget {

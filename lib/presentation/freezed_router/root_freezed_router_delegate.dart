@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:router_navigator/application/freezed_router/freezed_router_cubit.dart';
 import 'package:router_navigator/presentation/second_level_screen.dart';
 
 import 'main_screen.dart';
 
-class RootFreezedRouterDelegate extends RouterDelegate<FreezedRouterState>
-    with PopNavigatorRouterDelegateMixin<FreezedRouterState> {
+class RootFreezedRouterDelegate extends RouterDelegate<FreezedRouterState> {
   final GlobalKey<NavigatorState> _navigatorKey;
   final FreezedRouterCubit _routerCubit;
 
@@ -14,7 +14,6 @@ class RootFreezedRouterDelegate extends RouterDelegate<FreezedRouterState>
       : _navigatorKey = navigatorKey,
         _routerCubit = routerCubit;
 
-  @override
   GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
 
   @override
@@ -86,23 +85,22 @@ class RootFreezedRouterDelegate extends RouterDelegate<FreezedRouterState>
 
   Future<bool> _confirmAppExit() async =>
       await showDialog<bool>(
-          context: navigatorKey.currentContext!,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Exit App'),
-              content: const Text('Are you sure you want to exit the app?'),
-              actions: [
-                TextButton(
-                  child: const Text('Cancel'),
-                  onPressed: () => Navigator.pop(context, true),
-                ),
-                TextButton(
-                  child: const Text('Confirm'),
-                  onPressed: () => Navigator.pop(context, false),
-                ),
-              ],
-            );
-          }) ??
+        context: navigatorKey.currentContext!,
+        builder: (context) => AlertDialog(
+          title: const Text("Exit App"),
+          content: const Text("Are you sure you want to exit the app?"),
+          actions: [
+            TextButton(
+              child: const Text("Cancel"),
+              onPressed: () => Navigator.pop(context, true),
+            ),
+            TextButton(
+              child: const Text("Confirm"),
+              onPressed: () => Navigator.pop(context, false),
+            ),
+          ],
+        ),
+      ) ??
       true;
 
   Page _materialPage({

@@ -61,17 +61,6 @@ class FreezedRootRouterParser extends RouteInformationParser<FreezedRouterState>
   }
 
   @override
-  RouteInformation restoreRouteInformation(FreezedRouterState configuration) => RouteInformation(
-        location: configuration.maybeWhen(
-          page1: (text) =>
-              (text?.isEmpty ?? true) ? "/page1" : "/page1/${text!.replaceAll(" ", "-")}",
-          page2: (text) =>
-              (text?.isEmpty ?? true) ? "/page2" : "/page2/${text!.replaceAll(" ", "-")}",
-          page3: (text) =>
-              (text?.isEmpty ?? true) ? "/page3" : "/page3/${text!.replaceAll(" ", "-")}",
-          page4: (text) =>
-              (text?.isEmpty ?? true) ? "/page4" : "/page4/${text!.replaceAll(" ", "-")}",
-          orElse: () => "/page1",
-        ),
-      );
+  RouteInformation restoreRouteInformation(FreezedRouterState configuration) =>
+      RouteInformation(location: configuration.stateUrl);
 }
