@@ -26,7 +26,7 @@ class RouterCubit extends Cubit<RouterState> {
     }
   }
 
-  Future<void> setNewRoutePath(RouterState state) async {
+  void setNewRoutePath(RouterState state) {
     if (state is Page2State) {
       goToPage2(state.extraPageContent);
     } else if (state is Page3State) {

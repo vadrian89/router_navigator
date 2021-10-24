@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:router_navigator/application/router_cubit/router_cubit.dart';
 
@@ -5,12 +6,12 @@ class RootRouterParser extends RouteInformationParser<RouterState> {
   const RootRouterParser();
 
   @override
-  Future<RouterState> parseRouteInformation(RouteInformation routeInformation) async {
+  Future<RouterState> parseRouteInformation(RouteInformation routeInformation) {
     final uri = Uri.parse(routeInformation.location ?? "");
     if (uri.pathSegments.isNotEmpty) {
-      return _parseStateFromUri(uri);
+      return SynchronousFuture(_parseStateFromUri(uri));
     } else {
-      return const Page1State();
+      return SynchronousFuture(const Page1State());
     }
   }
 

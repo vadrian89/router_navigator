@@ -9,11 +9,10 @@ import 'router/root_router_delegate.dart';
 import 'package:router_navigator/application/freezed_router/freezed_router_cubit.dart';
 import 'package:router_navigator/presentation/freezed_router/root_freezed_router_parser.dart';
 import 'freezed_router/root_freezed_router_delegate.dart';
+import 'router/root_router_hybrid_delegate.dart';
 
 class AppRoot extends StatelessWidget {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-  // true - use freezed version; false - use non-freezed version
-  static const bool _useFreezed = false;
 
   AppRoot({Key? key}) : super(key: key);
 
@@ -27,8 +26,19 @@ class AppRoot extends StatelessWidget {
             create: (context) => RouterCubit(),
           ),
         ],
-        child: _useFreezed ? _freezedRouter : _router,
+        child: _routerBasedOnType(RouterType.simpleHybrid),
       );
+
+  Widget _routerBasedOnType(RouterType type) {
+    switch (type) {
+      case RouterType.freezed:
+        return _freezedRouter;
+      case RouterType.simpleHybrid:
+        return _hybridRouter;
+      default:
+        return _router;
+    }
+  }
 
   Widget get _router => BlocBuilder<RouterCubit, RouterState>(
         builder: (context, state) => MaterialApp.router(
@@ -59,4 +69,25 @@ class AppRoot extends StatelessWidget {
           routeInformationParser: const FreezedRootRouterParser(),
         ),
       );
+
+  Widget get _hybridRouter => Builder(
+        builder: (context) => MaterialApp.router(
+          theme: ThemeData.from(
+            colorScheme: ColorScheme.fromSwatch(
+              primarySwatch: Colors.blue,
+            ).copyWith(secondary: Colors.yellow),
+          ),
+          routerDelegate: RootRouterHybridDelegate(
+            navigatorKey,
+            context.read<RouterCubit>(),
+          ),
+          routeInformationParser: const RootRouterParser(),
+        ),
+      );
+}
+
+enum RouterType {
+  simple,
+  simpleHybrid,
+  freezed,
 }

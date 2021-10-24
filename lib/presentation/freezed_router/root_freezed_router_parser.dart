@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:router_navigator/application/freezed_router/freezed_router_cubit.dart';
 
@@ -5,12 +6,12 @@ class FreezedRootRouterParser extends RouteInformationParser<FreezedRouterState>
   const FreezedRootRouterParser();
 
   @override
-  Future<FreezedRouterState> parseRouteInformation(RouteInformation routeInformation) async {
+  Future<FreezedRouterState> parseRouteInformation(RouteInformation routeInformation) {
     final uri = Uri.parse(routeInformation.location ?? "");
     if (uri.pathSegments.isNotEmpty) {
-      return _parseStateFromUri(uri);
+      return SynchronousFuture(_parseStateFromUri(uri));
     } else {
-      return const FreezedRouterState.page1();
+      return SynchronousFuture(const FreezedRouterState.page1());
     }
   }
 

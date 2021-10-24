@@ -28,7 +28,7 @@ class FreezedRouterCubit extends Cubit<FreezedRouterState> {
     );
   }
 
-  Future<void> setNewRoutePath(FreezedRouterState state) async {
+  void setNewRoutePath(FreezedRouterState state) {
     state.when(
       page1: (text) => goToPage1(text),
       page2: (text) => goToPage2(text),

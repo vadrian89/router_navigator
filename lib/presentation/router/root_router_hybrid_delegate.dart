@@ -1,16 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:router_navigator/application/router_cubit/router_cubit.dart';
+import 'package:router_navigator/presentation/router/main_screen.dart';
 import 'package:router_navigator/presentation/second_level_screen.dart';
 
-import 'main_screen.dart';
-
-class RootRouterDelegate extends RouterDelegate<RouterState> {
+class RootRouterHybridDelegate extends RouterDelegate<RouterState> with ChangeNotifier {
   final GlobalKey<NavigatorState> _navigatorKey;
   final RouterCubit _routerCubit;
 
-  RootRouterDelegate(GlobalKey<NavigatorState> navigatorKey, RouterCubit routerCubit)
+  RootRouterHybridDelegate(GlobalKey<NavigatorState> navigatorKey, RouterCubit routerCubit)
       : _navigatorKey = navigatorKey,
         _routerCubit = routerCubit;
 
@@ -20,13 +19,16 @@ class RootRouterDelegate extends RouterDelegate<RouterState> {
   RouterState get currentConfiguration => _routerCubit.state;
 
   @override
-  Widget build(BuildContext context) => Navigator(
-        key: navigatorKey,
-        pages: List.from([
-          _materialPage(valueKey: "mainScreen", child: const MainScreen()),
-          ..._extraPages,
-        ]),
-        onPopPage: _onPopPageParser,
+  Widget build(BuildContext context) => BlocListener<RouterCubit, RouterState>(
+        listener: (_, __) => notifyListeners(),
+        child: Navigator(
+          key: navigatorKey,
+          pages: List.from([
+            _materialPage(valueKey: "mainScreen", child: const MainScreen()),
+            ..._extraPages,
+          ]),
+          onPopPage: _onPopPageParser,
+        ),
       );
 
   @override
@@ -125,12 +127,4 @@ class RootRouterDelegate extends RouterDelegate<RouterState> {
         key: ValueKey<String>(valueKey),
         child: child,
       );
-
-  //It's not needed for bloc/cubit
-  @override
-  void addListener(VoidCallback listener) {}
-
-  //It's not needed for bloc/cubit
-  @override
-  void removeListener(VoidCallback listener) {}
 }

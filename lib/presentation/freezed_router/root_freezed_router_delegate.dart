@@ -30,8 +30,8 @@ class RootFreezedRouterDelegate extends RouterDelegate<FreezedRouterState> {
       );
 
   @override
-  Future<void> setNewRoutePath(FreezedRouterState configuration) async =>
-      _routerCubit.setNewRoutePath(configuration);
+  Future<void> setNewRoutePath(FreezedRouterState configuration) =>
+      SynchronousFuture(_routerCubit.setNewRoutePath(configuration));
 
   bool _onPopPageParser(Route<dynamic> route, dynamic result) {
     if (!route.didPop(result)) return false;
