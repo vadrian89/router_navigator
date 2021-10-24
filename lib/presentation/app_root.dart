@@ -26,7 +26,7 @@ class AppRoot extends StatelessWidget {
             create: (context) => RouterCubit(),
           ),
         ],
-        child: _routerBasedOnType(RouterType.simpleHybrid),
+        child: _routerBasedOnType(RouterType.simple),
       );
 
   Widget _routerBasedOnType(RouterType type) {
